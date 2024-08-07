@@ -1,0 +1,38 @@
+spring:
+  redis:
+    database: 0
+    host: 172.17.0.5
+    port: 6379
+    password:
+    jedis:
+      pool:
+        min-idle: 0
+        max-total: 8
+        max-idle: 8
+        max-wait: -1
+    connect-timeout: 30000
+
+elasticsearch: #除非你的项目需要将 Elasticsearch 配置与 Spring 生态系统的其他组件（如 Spring Data Elasticsearch）紧密集成可以放在 spring.elasticsearch
+  uris: #可以配置多个ip
+    - http://127.0.0.1:9200
+#    - http://127.0.0.1:9200
+  read-timeout: 30
+  connection-timeout: 3000
+  prefix: demo_
+  suffix: _index
+  baseName: elasticsearch
+
+logging:
+  level:
+    root: info # 全局配置
+#    com.yourcompany.yourapp: DEBUG 细化
+#    com.yourcompany.otherpackage: WARN
+  file:
+    name: logs/spring-boot-application.log
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+
+server:
+  port: 8099
