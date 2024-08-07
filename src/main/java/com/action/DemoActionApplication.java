@@ -13,6 +13,6 @@ public class DemoActionApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
+        System.out.println("started successfully");
     }
 }

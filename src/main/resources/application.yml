@@ -12,6 +12,12 @@ spring:
         max-wait: -1
     connect-timeout: 30000
 
+  banner:
+    charset: utf-8
+    location: classpath:banner.txt
+  main:
+    banner-mode: console #log 输出到日志文件
+
 elasticsearch: #除非你的项目需要将 Elasticsearch 配置与 Spring 生态系统的其他组件（如 Spring Data Elasticsearch）紧密集成可以放在 spring.elasticsearch
   uris: #可以配置多个ip
     - http://127.0.0.1:9200
@@ -27,11 +33,11 @@ logging:
     root: info # 全局配置
 #    com.yourcompany.yourapp: DEBUG 细化
 #    com.yourcompany.otherpackage: WARN
-  file:
-    name: logs/spring-boot-application.log
+#  file:
+#    name: logs/spring-boot-application.log
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
-    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+#    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
 
 
 server:
