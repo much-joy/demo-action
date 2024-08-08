@@ -1,5 +1,6 @@
 package com.action.springValidation.controller;
 
+import com.action.springValidation.annotation.ValidCustom;
 import com.action.springValidation.dto.ValidParam;
 import com.action.springValidation.utils.AddValidationGroup;
 import com.action.springValidation.utils.EditValidationGroup;
@@ -57,6 +58,21 @@ public class ValidController {
 
     @PostMapping("/edit")
     public ResponseEntity<String> edit(@Validated(EditValidationGroup.class) @RequestBody ValidParam param, BindingResult bindingResult){
+
+        if (bindingResult.hasErrors()){
+            List<ObjectError> errors = bindingResult.getAllErrors();
+            errors.forEach(p -> {
+                FieldError fieldError = (FieldError) p;
+                log.error("Invalid Parameter : object - {},field - {},errorMessage - {}", fieldError.getObjectName(), fieldError.getField(), fieldError.getDefaultMessage());
+            });
+            return ResponseEntity.badRequest().body("invalid parameter");
+        }
+        return ResponseEntity.ok("sucess");
+    }
+
+
+    @PostMapping("/customValid")
+    public ResponseEntity<String> customValid(@ValidCustom @RequestBody ValidParam param, BindingResult bindingResult){
 
         if (bindingResult.hasErrors()){
             List<ObjectError> errors = bindingResult.getAllErrors();

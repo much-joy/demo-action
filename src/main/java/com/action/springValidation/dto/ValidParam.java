@@ -1,5 +1,6 @@
 package com.action.springValidation.dto;
 
+import com.action.springValidation.annotation.ValidCustom;
 import com.action.springValidation.utils.AddValidationGroup;
 import com.action.springValidation.utils.EditValidationGroup;
 import lombok.Builder;
@@ -44,6 +45,9 @@ public class ValidParam {
      */
 //    @Valid
 //    private AddressParam address;
+
+    @ValidCustom(allowNull = false)
+    private String message;
 
 
 }
