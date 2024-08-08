@@ -71,8 +71,8 @@ public class ValidController {
     }
 
 
-    @PostMapping("/customValid")
-    public ResponseResult<String> customValid(@ValidCustom @RequestBody ValidParam param, BindingResult bindingResult){
+    @PostMapping("/customValid1")
+    public ResponseResult<String> customValid1(@ValidCustom @RequestBody ValidParam param, BindingResult bindingResult){
 
         if (bindingResult.hasErrors()){
             List<ObjectError> errors = bindingResult.getAllErrors();
@@ -85,4 +85,9 @@ public class ValidController {
         return ResponseResult.success("success");
     }
 
+    @PostMapping("/customValid2")
+    public ResponseResult<String> customValid2(@ValidCustom @RequestBody ValidParam param){
+
+        return ResponseResult.success("success");
+    }
 }

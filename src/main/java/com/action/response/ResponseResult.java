@@ -36,8 +36,8 @@ public class ResponseResult<T> {
 
     public static <T> ResponseResult<T> success(T data) {
         return ResponseResult.<T>builder().data(data)
-                .message(ResponseStatus.SUCCESS.getDescription())
-                .status(ResponseStatus.SUCCESS.getResponseCode())
+                .message(ResponseCode.SUCCESS.getDescription())
+                .status(ResponseCode.SUCCESS.getResponseCode())
                 .timestamp(System.currentTimeMillis())
                 .build();
     }
@@ -48,7 +48,7 @@ public class ResponseResult<T> {
 
 
     /**
-     * 
+     *
      * @param data
      * @param message
      * @return
@@ -57,7 +57,7 @@ public class ResponseResult<T> {
     public static <T> ResponseResult<T> fail(T data, String message) {
         return ResponseResult.<T>builder().data(data)
                 .message(message)
-                .status(ResponseStatus.FAIL.getResponseCode())
+                .status(ResponseCode.FAIL.getResponseCode())
                 .timestamp(System.currentTimeMillis())
                 .build();
     }

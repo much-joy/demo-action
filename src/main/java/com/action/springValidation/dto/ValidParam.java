@@ -46,8 +46,9 @@ public class ValidParam {
 //    @Valid
 //    private AddressParam address;
 
-    @ValidCustom(allowNull = false)
+    @ValidCustom(message = "could not be empty",allowNull = false)
     private String message;
 
-
+    @ValidCustom(message = "could not be empty",allowNull = false)
+    private String message2;
 }
