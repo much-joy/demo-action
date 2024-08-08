@@ -2,7 +2,7 @@ package com.action.elasticSearch.service.impl;
 
 
 import com.action.elasticSearch.config.ElasticsearchConfig;
-import com.action.entity.Article;
+import com.action.dto.Article;
 import com.action.elasticSearch.service.ArticleService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.elasticsearch.action.index.IndexRequest;

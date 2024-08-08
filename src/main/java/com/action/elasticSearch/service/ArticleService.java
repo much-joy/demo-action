@@ -1,6 +1,6 @@
 package com.action.elasticSearch.service;
 
-import com.action.entity.Article;
+import com.action.dto.Article;
 
 import java.io.IOException;
 

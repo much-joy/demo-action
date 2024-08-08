@@ -1,4 +1,4 @@
-package com.action.entity;
+package com.action.dto;
 
 import lombok.Data;
 import org.springframework.stereotype.Component;
