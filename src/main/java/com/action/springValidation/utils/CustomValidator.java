@@ -1,6 +1,6 @@
 package com.action.springValidation.utils;
 
-import com.action.springValidation.annotation.ValidCustom;
+import com.action.annotation.ValidCustom;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 

@@ -1,7 +1,7 @@
 package com.action.springValidation.controller;
 
 import com.action.response.ResponseResult;
-import com.action.springValidation.annotation.ValidCustom;
+import com.action.annotation.ValidCustom;
 import com.action.springValidation.dto.ValidParam;
 import com.action.springValidation.utils.AddValidationGroup;
 import com.action.springValidation.utils.EditValidationGroup;

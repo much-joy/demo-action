@@ -1,4 +1,4 @@
-package com.action.springValidation.annotation;
+package com.action.annotation;
 
 import com.action.springValidation.utils.CustomValidator;
 

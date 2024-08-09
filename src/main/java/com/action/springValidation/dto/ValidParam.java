@@ -1,9 +1,8 @@
 package com.action.springValidation.dto;
 
-import com.action.springValidation.annotation.ValidCustom;
+import com.action.annotation.ValidCustom;
 import com.action.springValidation.utils.AddValidationGroup;
 import com.action.springValidation.utils.EditValidationGroup;
-import lombok.Builder;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;

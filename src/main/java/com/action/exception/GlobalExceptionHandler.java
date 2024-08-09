@@ -1,5 +1,6 @@
 package com.action.exception;
 
+import com.action.response.ResponseCode;
 import com.action.response.ResponseResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
@@ -46,4 +47,26 @@ public class GlobalExceptionHandler {
         }
         return ResponseResult.fail(null,String.join("; ", list));
     }
+
+
+    @ResponseBody
+    @ResponseStatus(code = HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(value = {BusinessException.class})
+    public ResponseResult<BusinessException> processBusinessException(BusinessException businessException) {
+        log.warn("businessException: {}", businessException.getLocalizedMessage());
+        return ResponseResult.fail(null, businessException.getLocalizedMessage()==null
+                ? ResponseCode.HTTP_STATUS_500.getDescription()
+                :businessException.getLocalizedMessage());
+    }
+
+
+    @ResponseBody
+    @ResponseStatus(code = HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(value = {Exception.class})
+    public ResponseResult<Exception> processException(Exception exception) {
+        log.warn("exception: {}", exception.getMessage());
+        return ResponseResult.fail(null, ResponseCode.HTTP_STATUS_500.getDescription());
+    }
+
+
 }
