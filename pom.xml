@@ -77,6 +77,33 @@
             <version>32.0.1-jre</version> <!-- 使用最新版本 -->
         </dependency>
 
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-quartz</artifactId>-->
+<!--        </dependency>-->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>5.2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.2.2</version>
+        </dependency>
+
     </dependencies>
     <dependencyManagement>
         <dependencies>

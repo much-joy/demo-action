@@ -1,4 +1,11 @@
 spring:
+  # application.yml
+  spring:
+    servlet:
+      multipart:
+        location: /Users/pengchen/PENGCHEN/DemoProject/demo-action/files
+        max-file-size: 10MB
+        max-request-size: 10MB
   redis:
     database: 0
     host: 172.17.0.5
@@ -11,6 +18,11 @@ spring:
         max-idle: 8
         max-wait: -1
     connect-timeout: 30000
+  datasource:
+    url: jdbc:mysql://localhost:3306/test
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
   banner:
     charset: utf-8
