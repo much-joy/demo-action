@@ -1,11 +1,47 @@
+server:
+  port: 8099
+
 spring:
-  # application.yml
-  spring:
-    servlet:
-      multipart:
-        location: /Users/pengchen/PENGCHEN/DemoProject/demo-action/files
-        max-file-size: 10MB
-        max-request-size: 10MB
+  servlet:
+    multipart:
+      location: /Users/pengchen/PENGCHEN/DemoProject/demo-action/files
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/test
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  quartz:
+    job-store-type: jdbc
+    properties:
+      org:
+        quartz:
+          scheduler:
+            instanceName: clusteredScheduler
+            instanceId: AUTO
+          jobStore:
+            class: org.quartz.impl.jdbcjobstore.JobStoreTX
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+            tablePrefix: QRTZ_
+            isClustered: true
+            clusterCheckinInterval: 10000
+            useProperties: false
+            dataSource: quartzDataSource
+          threadPool:
+            class: org.quartz.simpl.SimpleThreadPool
+            threadCount: 10
+            threadPriority: 5
+          dataSource:
+            quartzDataSource:
+              URL: jdbc:mysql://localhost:3306/test #URL要大写
+              user: root
+              password: 123456
+              driver: com.mysql.cj.jdbc.Driver
+              maxConnections: 5
+
   redis:
     database: 0
     host: 172.17.0.5
@@ -18,22 +54,16 @@ spring:
         max-idle: 8
         max-wait: -1
     connect-timeout: 30000
-  datasource:
-    url: jdbc:mysql://localhost:3306/test
-    username: root
-    password: 123456
-    driver-class-name: com.mysql.cj.jdbc.Driver
 
   banner:
     charset: utf-8
     location: classpath:banner.txt
   main:
-    banner-mode: console #log 输出到日志文件
+    banner-mode: console
 
-elasticsearch: #除非你的项目需要将 Elasticsearch 配置与 Spring 生态系统的其他组件（如 Spring Data Elasticsearch）紧密集成可以放在 spring.elasticsearch
-  uris: #可以配置多个ip
-    - http://127.0.0.1:9200
-#    - http://127.0.0.1:9200
+elasticsearch:
+  uris:
+  - http://127.0.0.1:9200
   read-timeout: 30
   connection-timeout: 3000
   prefix: demo_
@@ -42,15 +72,6 @@ elasticsearch: #除非你的项目需要将 Elasticsearch 配置与 Spring 生�
 
 logging:
   level:
-    root: info # 全局配置
-#    com.yourcompany.yourapp: DEBUG 细化
-#    com.yourcompany.otherpackage: WARN
-#  file:
-#    name: logs/spring-boot-application.log
+    root: info
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
-#    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
-
-
-server:
-  port: 8099
